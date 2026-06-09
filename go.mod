@@ -2,8 +2,6 @@ module prismgo
 
 go 1.26.2
 
-replace github.com/prismgo/framework => ../../prismgo
-
 require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/prismgo/framework v0.0.0-00010101000000-000000000000
