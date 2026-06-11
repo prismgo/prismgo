@@ -18,7 +18,7 @@ jobs:
       matrix:
         go:
           - 1.25.x
-          - 1.26.x
+          - 1.26.4
 
     steps:
       - name: Checkout
@@ -35,14 +35,6 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
           cache: true
-
-      - name: Update PrismGo framework dependency
-        run: |
-          go mod edit -droprequire=github.com/prismgo/framework
-          go get github.com/prismgo/framework@latest
-
-      - name: Tidy modules
-        run: go mod tidy
 
       - name: Download modules
         run: go mod download
