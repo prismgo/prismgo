@@ -25,7 +25,9 @@ jobs:
           cache: true
 
       - name: Update PrismGo framework dependency
-        run: go get github.com/prismgo/framework@latest
+        run: |
+          go mod edit -droprequire=github.com/prismgo/framework
+          go get github.com/prismgo/framework@latest
 
       - name: Tidy modules
         run: go mod tidy
