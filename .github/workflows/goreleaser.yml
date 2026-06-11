@@ -1,0 +1,52 @@
+name: GoReleaser
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: GitHub Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "^1"
+          cache: true
+
+      - name: Write release-only GoReleaser config
+        run: |
+          cat > .goreleaser.release.yml <<'YAML'
+          version: 2
+          builds:
+            - skip: true
+          checksum:
+            disable: true
+          changelog:
+            use: github
+            sort: asc
+          YAML
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v7
+        with:
+          distribution: goreleaser
+          version: latest
+          args: release --clean --config .goreleaser.release.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Trigger Go module reindex
+        run: |
+          curl -sSf "https://proxy.golang.org/github.com/${GITHUB_REPOSITORY,,}/@v/${GITHUB_REF_NAME}.info"

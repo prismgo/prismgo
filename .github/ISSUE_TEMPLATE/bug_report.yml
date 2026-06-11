@@ -1,0 +1,88 @@
+name: Bug Report
+description: 报告 PrismGo 中可复现的异常行为
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量提供最小复现，这能帮助我们更快定位问题。
+
+  - type: input
+    id: go-version
+    attributes:
+      label: Go 版本
+      description: 请粘贴 `go version` 的输出。
+      placeholder: go version go1.25.0 linux/amd64
+    validations:
+      required: true
+
+  - type: input
+    id: prismgo-version
+    attributes:
+      label: PrismGo 版本
+      description: 使用的 PrismGo 版本、tag 或 commit。
+      placeholder: v0.1.0 或 commit SHA
+    validations:
+      required: true
+
+  - type: input
+    id: framework-version
+    attributes:
+      label: github.com/prismgo/framework 版本
+      description: 可从 `go list -m github.com/prismgo/framework` 获取。
+      placeholder: github.com/prismgo/framework v0.1.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请列出从干净环境复现问题所需的命令、配置和操作。
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 描述你认为应该发生什么。
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+      description: 描述实际发生了什么。
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志或错误输出
+      description: 粘贴相关日志、panic、堆栈或命令输出。
+      render: shell
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 最小复现
+      description: 提供最小代码、仓库链接、测试用例或配置片段。
+      render: go
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: 运行环境
+      description: 操作系统、架构、数据库或其他相关依赖版本。
+      placeholder: Ubuntu 24.04 amd64, MySQL 8.4

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: PrismGo 使用问题
+    url: https://github.com/prismgo/prismgo/issues
+    about: 如果不确定是 bug 还是功能需求，可以先创建普通 issue 描述上下文。
