@@ -21,6 +21,9 @@ jobs:
           - 1.26.x
 
     steps:
+      - name: Clear inherited GitHub auth headers
+        run: git config --global --unset-all http.https://github.com/.extraheader || true
+
       - name: Checkout
         uses: actions/checkout@v6
 
