@@ -34,8 +34,8 @@ func TestWelcomeControllerShowReturnsDefaultPayload(t *testing.T) {
 	if err := json.Unmarshal(recorder.Body.Bytes(), &payload); err != nil {
 		t.Fatalf("decode response: %v", err)
 	}
-	if payload["framework"] != "prismgo" {
-		t.Fatalf("framework = %q, want prismgo", payload["framework"])
+	if payload["framework"] != "PrismGo" {
+		t.Fatalf("framework = %q, want PrismGo", payload["framework"])
 	}
 	if payload["message"] == "" {
 		t.Fatal("message should not be empty")

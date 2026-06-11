@@ -47,8 +47,8 @@ func TestRegisterAddsHealthAndWelcomeRoutes(t *testing.T) {
 	if err := json.Unmarshal(welcome.Body.Bytes(), &payload); err != nil {
 		t.Fatalf("decode welcome payload: %v", err)
 	}
-	if payload["framework"] != "prismgo" {
-		t.Fatalf("framework = %q, want prismgo", payload["framework"])
+	if payload["framework"] != "PrismGo" {
+		t.Fatalf("framework = %q, want PrismGo", payload["framework"])
 	}
 }
 
