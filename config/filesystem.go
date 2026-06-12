@@ -64,6 +64,21 @@ func init() {
 					"timeout":    Env("FILESYSTEM_OSS_TIMEOUT", 30),
 				},
 			},
+
+			/*
+				|--------------------------------------------------------------------------
+				| Symbolic Links
+				|--------------------------------------------------------------------------
+				|
+				| Here you may configure the symbolic links that will be created when the
+				| `storage:link` command is executed. The map keys should be the locations
+				| of the links and the values should be their targets.
+				|
+			*/
+			"links": map[string]interface{}{
+				"public/storage": "storage/app/public",
+				// "public/images": "storage/app/images",
+			},
 		}
 	})
 }
