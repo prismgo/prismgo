@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         env:
           GIT_CONFIG_COUNT: 1
           GIT_CONFIG_KEY_0: http.https://github.com/.extraheader
