@@ -34,3 +34,7 @@ jobs:
         uses: golang/govulncheck-action@v1
         with:
           go-package: ./...
+          # Pin to Go 1.25 to avoid a panic in govulncheck v1.4.0 + tools v0.46.0
+          # when run with Go 1.26+ (ForEachElement called on type containing *types.TypeParam).
+          # See https://github.com/golang/tools/pull/652
+          go-version-input: '1.25'
