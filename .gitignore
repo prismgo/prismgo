@@ -18,3 +18,4 @@
 !/storage/tmp/.gitignore
 /storage/*.key
 /storage/pail
+reasonix.toml
