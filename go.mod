@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/gin-gonic/gin v1.12.0
-	github.com/prismgo/framework v0.2.1
+	github.com/prismgo/framework v0.2.2
 	gorm.io/gorm v1.31.2
 )
 
